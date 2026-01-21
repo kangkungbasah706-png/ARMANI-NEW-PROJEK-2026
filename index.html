@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Paket Produk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style id="theme-variables">
+      :root {
+        --bg-main: #faf9f6;
+        --bg-card: #ffffff;
+        --text-primary: #121212;
+        --text-secondary: #525252;
+        --accent: #B38B4D;
+        --accent-bright: #8a6a35;
+        --status-success: #064e3b;
+        --status-warning: #B38B4D;
+        --status-error: #7f1d1d;
+
+        --color-border: var(--accent);
+        --color-text-primary: var(--text-primary);
+        --color-text-secondary: var(--text-secondary);
+        --color-success: var(--status-success);
+        --color-warning: var(--status-warning);
+        --color-error: var(--status-error);
+        --bg-panel: var(--bg-card);
+        --color-border-glow: rgba(179, 139, 77, 0.4);
+        --color-border-mid: rgba(179, 139, 77, 0.3);
+        --color-border-dim: rgba(179, 139, 77, 0.1);
+      }
+    </style>
+    <style id="bg-variables">
+      :root {
+        --bg-img-url: none;
+        --bg-img-opacity: 0;
+        --bg-overlay-alpha: 0;
+      }
+    </style>
+    <style>
+      /* GLOBAL THEME BACKGROUND (OUTSIDE CANVAS) */
+      html, body {
+        background-color: var(--bg-main);
+        transition: background-color 0.5s ease;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-primary);
+        transition: color 0.5s ease;
+      }
+      
+      .font-brand {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+      .font-serif-data {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+      }
+      #root {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        width: 100vw;
+      }
+
+      /* SCOPED CANVAS CONTAINER */
+      .app-canvas {
+        width: 1000px;
+        min-height: 1000px;
+        height: auto;
+        position: relative;
+        background-color: var(--bg-main);
+        box-shadow: 0 50px 100px -20px rgba(0,0,0,0.4);
+        overflow: hidden;
+        z-index: 10;
+      }
+      
+      /* SCOPED BACKGROUND LAYERS INSIDE CANVAS */
+      .app-canvas::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--bg-img-url);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: var(--bg-img-opacity);
+        z-index: -2;
+        pointer-events: none;
+        transition: opacity 0.8s ease;
+      }
+      .app-canvas::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--bg-main);
+        opacity: var(--bg-overlay-alpha);
+        z-index: -1;
+        pointer-events: none;
+        transition: opacity 0.8s ease, background-color 0.5s ease;
+      }
+
+      .app-canvas > * {
+        position: relative;
+        z-index: 10;
+      }
+
+      .luxury-gradient-border {
+        border: 1px solid transparent;
+        background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                    linear-gradient(to bottom right, var(--accent), transparent, var(--accent)) border-box;
+      }
+      .gold-glow { box-shadow: 0 0 30px -10px var(--color-border-glow); }
+      .text-glow-gold { text-shadow: 0 0 10px rgba(179, 139, 77, 0.4); }
+      
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--color-border-mid); border-radius: 10px; }
+      
+      @keyframes softPulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.02); }
+      }
+      .animate-soft-pulse { animation: softPulse 4s infinite ease-in-out; }
+
+      main {
+        height: auto;
+      }
+
+      /* Scoped for Readability optimization */
+      .view-readability-optimized {
+        font-family: 'Inter', sans-serif !important;
+      }
+      .view-readability-optimized *:not(.font-brand) {
+        font-family: 'Inter', sans-serif !important;
+      }
+      .view-readability-optimized p, 
+      .view-readability-optimized span, 
+      .view-readability-optimized li, 
+      .view-readability-optimized td,
+      .view-readability-optimized th,
+      .view-readability-optimized div:not(.font-brand) {
+        font-weight: 600;
+      }
+      .view-readability-optimized .font-bold { font-weight: 700 !important; }
+      .view-readability-optimized .font-black { font-weight: 900 !important; }
+      .view-readability-optimized .font-extrabold { font-weight: 800 !important; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+
+    <!-- THEME & BACKGROUND SWITCHERS -->
+    <div id="settings-controls-container">
+      
+      <!-- BACKGROUND MENU -->
+      <div id="background-menu" style="display:none;" class="bg-[#ffffff]/95 backdrop-blur-xl border border-black/10 p-4 rounded-2xl shadow-2xl mb-3 flex flex-col gap-4 w-64 fixed bottom-16 right-36 z-[300]">
+        <div class="border-b border-black/5 pb-2">
+          <span class="text-[9px] font-black text-black/40 uppercase tracking-[0.2em]">Background Control</span>
+        </div>
+        
+        <div class="flex items-center justify-between bg-black/5 p-2 rounded-xl">
+          <span class="text-[10px] font-black uppercase tracking-widest text-black/60">Image Layer</span>
+          <button id="bg-master-toggle" onclick="toggleBackgroundMaster()" class="px-3 py-1 bg-black text-white text-[9px] font-black uppercase rounded-lg transition-all">OFF</button>
+        </div>
+
+        <div id="bg-preset-grid" class="grid grid-cols-3 gap-2 opacity-40 pointer-events-none transition-opacity">
+          <button onclick="selectBgPreset(1)" class="bg-preset-btn aspect-square rounded-lg border-2 border-transparent overflow-hidden hover:border-black transition-all" style="background: url('https://i.pinimg.com/1200x/0b/7f/08/0b7f0861152a9262226f7edece1f599c.jpg') center/cover"></button>
+          <button onclick="selectBgPreset(2)" class="bg-preset-btn aspect-square rounded-lg border-2 border-transparent overflow-hidden hover:border-black transition-all" style="background: url('https://i.pinimg.com/736x/cc/0c/30/cc0c302356a656cfbb2f15c1ce3ade03.jpg') center/cover"></button>
+          <button onclick="selectBgPreset(3)" class="bg-preset-btn aspect-square rounded-lg border-2 border-transparent overflow-hidden hover:border-black transition-all" style="background: url('https://i.pinimg.com/736x/50/83/88/508388c7b7e9390b0c45db6d5d3ebde7.jpg') center/cover"></button>
+        </div>
+      </div>
+
+      <!-- DESIGN PALETTE MENU -->
+      <div id="theme-menu" style="display:none;" class="bg-[#ffffff]/95 backdrop-blur-xl border border-black/10 p-2 rounded-2xl shadow-2xl mb-3 flex flex-col gap-0.5 w-64 fixed bottom-16 right-4 z-[300] max-h-[70vh] overflow-y-auto custom-scrollbar">
+        <div class="px-3 py-2 border-b border-black/5 mb-1 sticky top-0 bg-white/80 backdrop-blur-md z-10">
+          <span class="text-[9px] font-black text-black/40 uppercase tracking-[0.2em]">Design Palette</span>
+        </div>
+        <div id="palette-list" class="grid grid-cols-1 gap-0.5"></div>
+      </div>
+
+      <!-- FLOATING BUTTONS -->
+      <button onclick="toggleBackgroundMenu()" class="w-10 h-10 bg-black/5 backdrop-blur-md hover:bg-black/10 border border-black/10 rounded-full flex items-center justify-center text-black/30 hover:text-black transition-all shadow-xl fixed bottom-4 right-36 z-[300]">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+      </button>
+
+      <button onclick="toggleThemeMenu()" class="w-10 h-10 bg-black/5 backdrop-blur-md hover:bg-black/10 border border-black/10 rounded-full flex items-center justify-center text-black/30 hover:text-black transition-all shadow-xl fixed bottom-4 right-20 z-[300]">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.172-1.172a4 4 0 115.656 5.656l-1.172 1.172" /></svg>
+      </button>
+    </div>
+
+    <script>
+      const THEMES = {
+        IVORY_EXECUTIVE: { name: "Ivory Executive", accent: "#B38B4D", bg: "#faf9f6", card: "#ffffff", text: "#121212" },
+        ONYX_NOIR: { name: "Onyx Noir", accent: "#FFFFFF", bg: "#0a0a0a", card: "#121212", text: "#f0f0f0" },
+        MIDNIGHT_GOLD: { name: "Midnight Gold", accent: "#B38B4D", bg: "#121212", card: "#1a1a1a", text: "#e0e0e0" },
+        SAPPHIRE_SILVER: { name: "Sapphire Silver", accent: "#8E9EB0", bg: "#f0f4f8", card: "#ffffff", text: "#2d3748" },
+        EMERALD_SAGE: { name: "Emerald Sage", accent: "#748E63", bg: "#f5f7f2", card: "#ffffff", text: "#2f352a" },
+        ROYAL_BURGUNDY: { name: "Royal Burgundy", accent: "#A67B7B", bg: "#faf7f7", card: "#ffffff", text: "#3d2b2b" },
+        SLATE_MODERN: { name: "Slate Modern", accent: "#64748b", bg: "#f8fafc", card: "#ffffff", text: "#1e293b" },
+        COCOA_CREAM: { name: "Cocoa Cream", accent: "#8b5e3c", bg: "#faf6f2", card: "#ffffff", text: "#3c2f25" },
+        PEARL_MINIMAL: { name: "Pearl Minimal", accent: "#444444", bg: "#ffffff", card: "#fcfcfc", text: "#111111" },
+        CHAMPAGNE_ROSE: { name: "Champagne Rose", accent: "#D4AF37", bg: "#fffcf0", card: "#ffffff", text: "#2c2a20" },
+        PLATINUM_SLATE: { name: "Platinum Slate", accent: "#94a3b8", bg: "#1e293b", card: "#334155", text: "#f1f5f9" },
+        DEEP_CARBON: { name: "Deep Carbon", accent: "#f97316", bg: "#0f172a", card: "#1e293b", text: "#f8fafc" }
+      };
+
+      const BG_URLS = [
+        "https://i.pinimg.com/1200x/0b/7f/08/0b7f0861152a9262226f7edece1f599c.jpg",
+        "https://i.pinimg.com/736x/cc/0c/30/cc0c302356a656cfbb2f15c1ce3ade03.jpg",
+        "https://i.pinimg.com/736x/50/83/88/508388c7b7e9390b0c45db6d5d3ebde7.jpg"
+      ];
+
+      let currentBgState = { enabled: false, preset: 1 };
+
+      function toggleThemeMenu() {
+        document.getElementById('background-menu').style.display = 'none';
+        const menu = document.getElementById('theme-menu');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+      }
+
+      function toggleBackgroundMenu() {
+        document.getElementById('theme-menu').style.display = 'none';
+        const menu = document.getElementById('background-menu');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+      }
+
+      function applyPreset(id) {
+        const theme = THEMES[id] || THEMES.IVORY_EXECUTIVE;
+        const styleTag = document.getElementById('theme-variables');
+        const root = document.documentElement;
+        
+        styleTag.innerHTML = `
+          :root {
+            --bg-main: ${theme.bg};
+            --bg-card: ${theme.card};
+            --text-primary: ${theme.text};
+            --text-secondary: ${id.includes('NOIR') || id.includes('MIDNIGHT') || id.includes('CARBON') ? '#a0a0a0' : '#525252'};
+            --accent: ${theme.accent};
+            --accent-bright: ${theme.accent};
+            --status-success: ${id.includes('NOIR') || id.includes('MIDNIGHT') ? '#22c55e' : '#064e3b'};
+            --status-warning: ${theme.accent};
+            --status-error: ${id.includes('NOIR') || id.includes('MIDNIGHT') ? '#ef4444' : '#7f1d1d'};
+
+            --color-border: var(--accent);
+            --color-text-primary: var(--text-primary);
+            --color-text-secondary: var(--text-secondary);
+            --color-success: var(--status-success);
+            --color-warning: var(--status-warning);
+            --color-error: var(--status-error);
+            --bg-panel: var(--bg-card);
+            --color-border-glow: ${theme.accent}66;
+            --color-border-mid: ${theme.accent}4d;
+            --color-border-dim: ${theme.accent}1a;
+          }
+        `;
+        
+        root.style.setProperty('--bg-main', theme.bg);
+        
+        localStorage.setItem('global_theme_id', id);
+        document.getElementById('theme-menu').style.display = 'none';
+        window.dispatchEvent(new CustomEvent('themeChanged', { detail: id }));
+      }
+
+      function toggleBackgroundMaster() {
+        currentBgState.enabled = !currentBgState.enabled;
+        applyBgState();
+      }
+
+      function selectBgPreset(idx) {
+        currentBgState.preset = idx;
+        const img = new Image();
+        img.src = BG_URLS[idx - 1];
+        img.onload = () => applyBgState();
+        img.onerror = () => applyBgState();
+      }
+
+      function applyBgState() {
+        const root = document.documentElement;
+        const toggleBtn = document.getElementById('bg-master-toggle');
+        const presetGrid = document.getElementById('bg-preset-grid');
+        const presetBtns = document.querySelectorAll('.bg-preset-btn');
+
+        if (!toggleBtn || !presetGrid) return;
+
+        if (currentBgState.enabled) {
+          const url = BG_URLS[currentBgState.preset - 1];
+          root.style.setProperty('--bg-img-url', `url("${url}")`);
+          root.style.setProperty('--bg-img-opacity', '1');
+          root.style.setProperty('--bg-overlay-alpha', '0.08');
+          
+          toggleBtn.innerText = "ON";
+          toggleBtn.classList.remove('bg-black');
+          toggleBtn.classList.add('bg-green-600');
+          presetGrid.classList.remove('opacity-40', 'pointer-events-none');
+        } else {
+          root.style.setProperty('--bg-img-opacity', '0');
+          root.style.setProperty('--bg-overlay-alpha', '0');
+          
+          toggleBtn.innerText = "OFF";
+          toggleBtn.classList.remove('bg-green-600');
+          toggleBtn.classList.add('bg-black');
+          presetGrid.classList.add('opacity-40', 'pointer-events-none');
+        }
+
+        presetBtns.forEach((btn, i) => {
+          if (currentBgState.enabled && (i + 1) === currentBgState.preset) {
+            btn.style.borderColor = "black";
+            btn.style.boxShadow = "0 0 15px rgba(0,0,0,0.3)";
+          } else {
+            btn.style.borderColor = "transparent";
+            btn.style.boxShadow = "none";
+          }
+        });
+
+        localStorage.setItem('bg_state', JSON.stringify(currentBgState));
+      }
+
+      function initPaletteMenu() {
+        const list = document.getElementById('palette-list');
+        Object.keys(THEMES).forEach(id => {
+          const theme = THEMES[id];
+          const btn = document.createElement('button');
+          btn.onclick = () => applyPreset(id);
+          btn.className = "flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-black/5 transition-all text-left group";
+          btn.innerHTML = `
+            <div class="flex gap-0.5">
+              <div class="w-4 h-4 rounded-full border border-black/5" style="background:${theme.bg}"></div>
+              <div class="w-4 h-4 rounded-full border border-black/5 -ml-2" style="background:${theme.accent}"></div>
+            </div>
+            <span class="text-[10px] font-black text-black uppercase tracking-widest truncate">${theme.name}</span>
+          `;
+          list.appendChild(btn);
+        });
+      }
+
+      window.onload = () => {
+        initPaletteMenu();
+        const savedTheme = localStorage.getItem('global_theme_id');
+        applyPreset(savedTheme && THEMES[savedTheme] ? savedTheme : 'IVORY_EXECUTIVE');
+        const savedBg = localStorage.getItem('bg_state');
+        if (savedBg) {
+          currentBgState = JSON.parse(savedBg);
+          applyBgState();
+        }
+      };
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
