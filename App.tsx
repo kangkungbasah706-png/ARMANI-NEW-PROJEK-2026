@@ -302,7 +302,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* GAMBAR PRODUK BOX - BERAKHIR RAPI (CLEAN ROUNDED) */}
-                <div className="flex-grow bg-[#ff7373] rounded-[24px] overflow-hidden shadow-xl flex flex-col min-h-0 relative border border-white/20">
+                <div className="flex-grow bg-[#ff7373] rounded-[24px] overflow-hidden shadow-xl flex flex-col min-h-0 relative border border-white/20 -mt-4">
                    <div className="flex-grow relative w-full overflow-hidden bg-black rounded-b-[24px] min-h-[420px]">
                       <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover opacity-90" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
