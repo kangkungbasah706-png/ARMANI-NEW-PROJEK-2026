@@ -389,8 +389,8 @@ const App: React.FC = () => {
                    </div>
 
                    {/* FITUR WAKTU TUGAS - MENGISI KOTAK KOSONG */}
-                   <div className="mt-auto pt-6 border-t border-black/5 flex flex-col items-center justify-center shrink-0">
-                      <div className="bg-black/[0.03] rounded-2xl px-12 py-4 border border-black/5 flex flex-col items-center shadow-inner relative overflow-hidden group">
+                   <div className="mt-auto pt-4 border-t border-black/5 flex flex-col items-center justify-center shrink-0">
+                      <div className="bg-black/[0.03] rounded-2xl px-8 py-3 border border-black/5 flex flex-col items-center shadow-inner relative overflow-hidden group">
                          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#d13a3a]/20 to-transparent"></div>
                          <div className="flex items-center gap-2.5 mb-1.5">
                             <svg className="w-4 h-4 text-black/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -403,7 +403,7 @@ const App: React.FC = () => {
                          <EditableText 
                            value={detailContent.taskTimeValue} 
                            onChange={(v:string) => setDetailContent({...detailContent, taskTimeValue: v})} 
-                           className="text-[36px] font-brand font-black text-black leading-none drop-shadow-sm" 
+                           className="text-[32px] font-brand font-black text-black leading-none drop-shadow-sm" 
                          />
                          <EditableText 
                            value={detailContent.taskTimeSub} 
