@@ -811,8 +811,8 @@ const App: React.FC = () => {
               </div>
 
               {/* DETEKSI SISTEM CONTROLS */}
-              <div className="bg-white/5 p-6 rounded-2xl space-y-6 border border-white/5">
-                <p className="text-[10px] text-white/40 font-black uppercase tracking-[0.4em] italic mb-2">PENGATURAN DETEKSI SISTEM</p>
+              <div className="bg-white/5 p-4 rounded-2xl space-y-6 border border-white/5">
+                <p className="text-[10px] text-white/40 font-black uppercase tracking-[0.4em] italic mb-1">PENGATURAN DETEKSI SISTEM</p>
                 <div className="flex gap-4">
                   {['kesalahan', 'kredit', 'verifikasi'].map(m => (
                     <button 
@@ -825,7 +825,7 @@ const App: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="grid grid-cols-2 gap-6 mt-4">
+                <div className="grid grid-cols-2 gap-3 mt-2">
                   {systemContent.visualMode === 'kesalahan' && (
                     <>
                       <AdminInput label="PENARIKAN DITENTUKAN" value={systemContent.kesalahan.target} onChange={(v:string) => setSystemContent({...systemContent, kesalahan: {...systemContent.kesalahan, target: v}})} />
