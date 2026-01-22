@@ -302,7 +302,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* GAMBAR PRODUK BOX - BERAKHIR RAPI (CLEAN ROUNDED) */}
-                <div className="flex-grow bg-[#ff7373] rounded-[24px] overflow-hidden shadow-xl flex flex-col min-h-0 relative border border-white/20">
+                <div className="flex-grow bg-[#ff7373] rounded-[24px] overflow-hidden shadow-xl flex flex-col min-h-0 relative border border-white/20 -mt-6">
                    <div className="w-full py-2.5 bg-black/5 text-center border-b border-black/5 shrink-0">
                       <span className="text-[12px] font-black text-black tracking-[0.3em] uppercase italic truncate px-2 block">{product.name}</span>
                    </div>
