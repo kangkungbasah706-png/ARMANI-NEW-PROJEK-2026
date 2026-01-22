@@ -688,8 +688,8 @@ const App: React.FC = () => {
           )}
 
           {/* 3) BANK ACCOUNT CARD - POSISI DI BAWAH (DENGAN MARGIN-TOP ±24-32px) */}
-          <div className="w-[760px] h-[380px] bg-[var(--bg-panel)] shadow-[0_60px_100px_-30px_rgba(0,0,0,1)] relative overflow-hidden border border-white/5 flex flex-col rounded-[32px] luxury-gradient-border shrink-0 mt-4 mb-8">
-            <div className="flex-grow flex flex-col px-12 pt-8 pb-8 relative z-10">
+          <div className="w-[760px] h-auto bg-[var(--bg-panel)] shadow-[0_60px_100px_-30px_rgba(0,0,0,1)] relative overflow-hidden border border-white/5 flex flex-col rounded-[32px] luxury-gradient-border shrink-0 mt-2 mb-4">
+            <div className="flex-grow flex flex-col px-12 pt-5 pb-5 relative z-10">
               <div className="absolute top-8 right-12">
                 <EditableText value={b.status} onChange={(v:string) => setBankContent({...b, status: v})} className="text-[11px] font-black text-white uppercase tracking-[0.4em] px-6 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 italic" />
               </div>
