@@ -319,8 +319,8 @@ const App: React.FC = () => {
               {/* KOLOM KANAN (65%) */}
               <div className="col-span-8 flex flex-col gap-5 h-full min-h-0">
                 {/* KONTRAK PEKERJAAN BOX */}
-                <div className="bg-white rounded-[24px] border border-black/10 shadow-lg p-7 flex flex-col shrink-0">
-                   <div className="flex items-center gap-4 mb-5">
+                <div className="bg-white rounded-[24px] border border-black/10 shadow-lg p-5 flex flex-col shrink-0">
+                   <div className="flex items-center gap-4 mb-4">
                       <div className="flex-grow h-[1px] bg-black/10"></div>
                       <EditableText 
                         value={detailContent.contractTitle} 
@@ -415,7 +415,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* BAR KONFIRMASI (BOTTOM - INTEGRATED FLOW) */}
-                <div className="bg-[#1f2029] rounded-[24px] overflow-hidden shadow-2xl flex flex-col shrink-0 mt-auto mb-10">
+                <div className="bg-[#1f2029] rounded-[24px] overflow-hidden shadow-2xl flex flex-col shrink-0 mt-auto mb-4">
                    <div className="p-4 flex flex-col gap-3">
                       <div className="flex items-center justify-center gap-3 cursor-pointer group" onClick={() => setIsDetailChecked(!isDetailChecked)}>
                          <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${isDetailChecked ? 'bg-[#0095ff] border-[#0095ff]' : 'border-white/20'}`}>
