@@ -460,14 +460,13 @@ const App: React.FC = () => {
       const data = s[mode as keyof typeof s] as any;
 
       return (
-        <div className="flex flex-col items-center w-full h-auto bg-transparent view-readability-optimized">
-          <div className="w-full h-auto pt-4 px-12 pb-1 flex flex-col gap-4 justify-start">
+        <div className="flex flex-col items-center w-full h-auto bg-transparent">
+          <div className="w-full h-auto pt-1 px-12 pb-0 flex flex-col gap-2 justify-start">
             <div className="w-full flex flex-col items-center border-b border-white/10 pb-2 shrink-0 relative">
-               <span className="text-[12px] font-black text-[var(--accent)] tracking-[0.8em] uppercase mb-1">Protokol Audit Internal</span>
                <EditableText value={common.title} onChange={(v:string) => setSystemContent({...s, common: {...common, title: v}})} className="text-[46px] font-brand font-black text-[var(--color-text-primary)] tracking-tight uppercase italic" />
             </div>
-            <div className="w-full bg-[var(--bg-panel)] rounded-2xl p-6 border border-white/5 luxury-gradient-border shadow-2xl shrink-0">
-                <div className="grid grid-cols-2 gap-x-12 gap-y-3">
+            <div className="w-full bg-[var(--bg-panel)] rounded-2xl p-4 border border-white/5 luxury-gradient-border shadow-2xl shrink-0">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-3">
                    {[
                      { l: "ID AKUN", v: common.accNo, k: 'accNo' }, { l: "TANGGAL", v: common.reportDate, k: 'reportDate' },
                      { l: "NAMA", v: common.owner, k: 'owner' }, { l: "STATUS AKUN", v: common.status, k: 'status', highlight: true },
