@@ -415,7 +415,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* BAR KONFIRMASI (BOTTOM - INTEGRATED FLOW) */}
-                <div className="bg-[#1f2029] rounded-[24px] overflow-hidden shadow-2xl flex flex-col shrink-0 mt-auto mb-8">
+                <div className="bg-[#1f2029] rounded-[24px] overflow-hidden shadow-2xl flex flex-col shrink-0 mt-auto mb-24">
                    <div className="p-4 flex flex-col gap-3">
                       <div className="flex items-center justify-center gap-3 cursor-pointer group" onClick={() => setIsDetailChecked(!isDetailChecked)}>
                          <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${isDetailChecked ? 'bg-[#0095ff] border-[#0095ff]' : 'border-white/20'}`}>
