@@ -349,7 +349,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* RINCIAN PEKERJAAN BOX */}
-                <div className="bg-white rounded-[24px] border border-black/10 shadow-lg p-4 flex flex-col flex-grow min-h-0">
+                <div className="bg-white rounded-[24px] border border-black/10 shadow-lg p-4 flex flex-col flex-none min-h-0">
                    <div className="flex items-center gap-3 mb-3 shrink-0">
                       <div className="flex-grow h-[1px] bg-black/10"></div>
                       <EditableText 
