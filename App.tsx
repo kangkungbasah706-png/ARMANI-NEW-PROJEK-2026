@@ -489,7 +489,7 @@ const App: React.FC = () => {
                    ))}
                 </div>
             </div>
-            <div className="w-full grid grid-cols-12 gap-3 overflow-visible">
+            <div className="w-full grid grid-cols-12 gap-2 overflow-visible">
               <div className="col-span-7 flex flex-col h-auto bg-[var(--bg-panel)] border border-white/5 shadow-2xl rounded-2xl overflow-visible">
                  <div className="w-full py-2 bg-white/5 text-center border-b border-white/5 shrink-0">
                    <span className="text-[12px] font-black uppercase tracking-[0.5em] text-[var(--accent)] italic">DETEKSI SISTEM</span>
