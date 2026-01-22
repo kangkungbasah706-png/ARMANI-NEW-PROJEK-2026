@@ -349,8 +349,8 @@ const App: React.FC = () => {
                 </div>
 
                 {/* RINCIAN PEKERJAAN BOX */}
-                <div className="bg-white rounded-[24px] border border-black/10 shadow-lg p-7 flex flex-col flex-grow min-h-0">
-                   <div className="flex items-center gap-4 mb-5 shrink-0">
+                <div className="bg-white rounded-[24px] border border-black/10 shadow-lg p-4 flex flex-col flex-grow min-h-0">
+                   <div className="flex items-center gap-3 mb-3 shrink-0">
                       <div className="flex-grow h-[1px] bg-black/10"></div>
                       <EditableText 
                         value={detailContent.detailsTitle} 
@@ -359,9 +359,9 @@ const App: React.FC = () => {
                       />
                       <div className="flex-grow h-[1px] bg-black/10"></div>
                    </div>
-                   <div className="space-y-4 flex-grow min-h-0 overflow-hidden">
+                   <div className="space-y-2 flex-grow min-h-0 overflow-hidden">
                       {detailContent.taskDetails.map((item: any, i: number) => (
-                        <div key={i} className="flex gap-5 items-start">
+                        <div key={i} className="flex gap-3 items-start">
                            <div className="w-1.5 h-1.5 rounded-full bg-black mt-2 shrink-0"></div>
                            <div className="flex flex-col sm:flex-row sm:gap-6 flex-grow items-baseline">
                               <EditableText 
@@ -436,7 +436,7 @@ const App: React.FC = () => {
                            setIsConfirmed(true);
                            setActiveView('bank');
                         }}
-                        className={`w-full flex items-center justify-center rounded-xl text-[20px] font-brand font-black uppercase italic tracking-[0.25em] transition-all active:scale-[0.98] leading-none h-[12px]
+                        className={`w-full flex items-center justify-center rounded-xl text-[24px] font-brand font-black uppercase italic tracking-[0.25em] transition-all active:scale-[0.98] leading-none h-[14px]
                           ${isDetailChecked 
                             ? 'bg-[#0095ff] text-white hover:brightness-110 shadow-[0_15px_35px_-5px_rgba(0,149,255,0.5)] cursor-pointer' 
                             : 'bg-[#0095ff]/75 text-white/60 cursor-not-allowed border border-[#f9e79f]/40 shadow-[0_0_20px_rgba(249,231,159,0.1)]'}`}
