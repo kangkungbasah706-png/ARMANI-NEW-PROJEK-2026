@@ -306,8 +306,8 @@ const App: React.FC = () => {
                    <div className="w-full py-2.5 bg-black/5 text-center border-b border-black/5 shrink-0">
                       <span className="text-[12px] font-black text-black tracking-[0.3em] uppercase italic truncate px-2 block">{product.name}</span>
                    </div>
-                   <div className="flex-grow relative w-full overflow-hidden bg-black rounded-b-[24px]">
-                      <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover opacity-90" />
+                   <div className="flex-grow relative w-full overflow-hidden bg-black rounded-b-[24px] min-h-[420px]">
+                      <img src={product.imageUrl} alt={product.name} className="w-full h-full object-contain opacity-90" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                       <div className="absolute bottom-8 left-0 right-0 px-8">
                         <span className="text-white text-[24px] font-brand font-black uppercase italic tracking-widest leading-none truncate">{product.name}</span>
