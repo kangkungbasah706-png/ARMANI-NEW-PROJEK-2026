@@ -415,7 +415,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* BAR KONFIRMASI (BOTTOM - INTEGRATED FLOW) */}
-                <div className="bg-[#1f2029] rounded-[24px] overflow-hidden shadow-2xl flex flex-col shrink-0 mt-auto">
+                <div className="bg-[#1f2029] rounded-[24px] overflow-hidden shadow-2xl flex flex-col shrink-0 mt-auto mb-8">
                    <div className="p-4 flex flex-col gap-3">
                       <div className="flex items-center justify-center gap-3 cursor-pointer group" onClick={() => setIsDetailChecked(!isDetailChecked)}>
                          <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${isDetailChecked ? 'bg-[#0095ff] border-[#0095ff]' : 'border-white/20'}`}>
@@ -436,7 +436,7 @@ const App: React.FC = () => {
                            setIsConfirmed(true);
                            setActiveView('bank');
                         }}
-                        className={`w-full flex items-center justify-center rounded-xl text-[28px] font-brand font-black uppercase italic tracking-[0.3em] transition-all active:scale-[0.98] leading-none h-[54px]
+                        className={`w-full flex items-center justify-center rounded-xl text-[22px] font-brand font-black uppercase italic tracking-[0.3em] transition-all active:scale-[0.98] leading-none h-[54px]
                           ${isDetailChecked 
                             ? 'bg-[#0095ff] text-white hover:brightness-110 shadow-[0_15px_35px_-5px_rgba(0,149,255,0.5)] cursor-pointer' 
                             : 'bg-[#0095ff]/75 text-white/60 cursor-not-allowed border border-[#f9e79f]/40 shadow-[0_0_20px_rgba(249,231,159,0.1)]'}`}
